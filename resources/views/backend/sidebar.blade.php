@@ -8,7 +8,7 @@
             </span>
         </a>
         <ul class="treeview-menu">
-            <li class="active"><a href="{{route('user.index')}}"><i class="fa fa-user"></i>User</a></li>
+            <li><a href="{{route('user.index')}}"><i class="fa fa-user"></i>User</a></li>
             <li><a href="{{route('supplier.index')}}"><i class="fa fa-user"></i>Supplier</a></li>
             <li><a href="{{route('pegawai.index')}}"><i class="fa fa-circle-o"></i>Pegawai</a></li>
             <li><a href="{{route('kategori.index')}}"><i class="fa fa-circle-o"></i>Kategori</a></li>
@@ -17,11 +17,8 @@
     </li>
 
     <li>
-        <a href="pages/widgets.html">
-            <i class="fa fa-th"></i> <span>Widgets</span>
-            <span class="pull-right-container">
-                <small class="label pull-right bg-green">new</small>
-            </span>
+        <a href="{{ route('transaksi_masuk.index')}} ">
+            <i class="fa fa-th"></i> <span>Transaksi Masuk</span>
         </a>
     </li>
 </ul>

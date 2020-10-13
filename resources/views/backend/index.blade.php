@@ -67,6 +67,15 @@
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('adminlte/dist/js/demo.js')}}"></script>
 
+    <script>
+        $(function(){
+            $('.datepicker').datepicker({
+                autoclose:true,
+                format:'yyyy-mm-dd'
+            });
+        });
+    </script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -106,8 +115,8 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
-                                <li class="user-header"> 
-                                <img src="{{asset ('img/stafflogo.png')}}" class="img-circle" alt="User Image">
+                                <li class="user-header">
+                                    <img src="{{asset ('img/stafflogo.png')}}" class="img-circle" alt="User Image">
                                     <p>
                                         @if(Auth::check())
                                         {{Auth::user()->name}}
@@ -160,11 +169,8 @@
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-        <footer class="main-footer">
-            <div class="pull-right hidden-xs">
-                <b>Version</b> 2.4.0
-            </div>
-            <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
+        <footer class="main-footer" style="text-align: center;">
+            <strong>Copyright &copy; 2020 <a href="nandadwinurkholifah.github.io">Nanda Dwi N</a>.</strong> All rights
             reserved.
         </footer>
 

@@ -31,3 +31,4 @@ Route::resource('supplier', 'SupplierController');
 Route::resource('pegawai', 'PegawaiController');
 Route::resource('kategori', 'KategoriController');
 Route::resource('produk','ProdukController');
+Route::resource('transaksi_masuk', 'TransaksiMasukController');

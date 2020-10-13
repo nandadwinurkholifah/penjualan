@@ -13,13 +13,23 @@ class ProdukController extends Controller
 {
     public function index(Request $request)
     {
-        
         $produk = Produk::paginate(5);
+        $kategori = Kategori::all();
         $filterKeyword = $request->get('keyword');
+        $nama_kategori = "";
+
         if ($filterKeyword) {
             $produk = Produk::where('nama_produk','LIKE',"$filterKeyword")->paginate(5);
         }
-        return view('produk.index',compact('produk'));
+
+        $filter_by_kategori = $request->get('kd_kategori');
+        if ($filter_by_kategori) {
+            $produk = Produk::where('kd_kategori',$filter_by_kategori)->paginate(5);
+            $data_kategori = Kategori::find($filter_by_kategori);
+            $nama_kategori = $data_kategori->kategori;
+        }
+
+        return view('produk.index',compact('produk', 'kategori','nama_kategori'));
     }
 
     public function create()

@@ -11,26 +11,48 @@ Data Produk
                 @if(Request::get('keyword'))
                 <a href="{{ route('produk.index') }} " class="btn btn-success"><i class="fa fa-arrow-left"></i> Back</a>
                 @else
-
                 <a href="{{ route('produk.create')}} " class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Create</a>
-
                 @endif
+
                 <form action="{{ route('produk.index') }} " method="get">
                     <div class="form-group">
                         <label for="" class="col-sm-2 control-label">Search By Name</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="keyword" name="keyword" value="{{Request::get('keyword')}} ">
+                            <input type="text" class="form-control" id="keyword" name="keyword" value="{{Request::get('keyword')}}" placeholder="Name">
                         </div>
                         <div class="col-sm-6">
                             <button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-search"></span></button>
                         </div>
                     </div>
                 </form>
+                <br><br>
+                <form action="{{ route('produk.index') }} " method="get">
+                    <div class="form-group">
+                        <label for="" class="col-sm-2 control-label">Search By Kategori</label>
+                        <div class="col-sm-4">
+                            <select name="kd_kategori" id="kd_kategori" class="form-control">
+                                @foreach($kategori as $data)
+                                <option value="{{$data->kd_kategori}}">{{$data->kategori}} </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class=" col-sm-6">
+                            <button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                    </div>
+                </form>
+
             </div>
             <div class="box-body">
                 @if(Request::get('keyword'))
                 <div class="alert alert-success alert-block">
                     Hasil Pencarian Produk dengan Keyword : <b>{{ Request::get('keyword')}}</b>
+                </div>
+                @endif
+
+                @if(Request::get('kd_kategori'))
+                <div class="alert alert-success alert-block">
+                    Hasil Pencarian Produk dengan Kategori : <b>{{ $nama_kategori}}</b>
                 </div>
                 @endif
 
@@ -41,6 +63,7 @@ Data Produk
                         <tr>
                             <th width="5%">#</th>
                             <th>Nama Produk </th>
+                            <th>Nama Kategori</th>
                             <th>Harga</th>
                             <th>Gambar</th>
                             <th>Stok</th>
